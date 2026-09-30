@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EasyTrip 정확도 검증</title>
+<style>
+:root{--bg:#F6F8FA;--card:#fff;--ink:#16202A;--ink2:#4A5866;--ink3:#7A8794;--line:#DFE5EA;--acc:#1580B8;--acc-t:#E6F3FB;
+  --ok:#1E7F4E;--ok-bg:#E4F5EC;--cau:#8A5A00;--cau-bg:#FFF1CC;--no:#A3261B;--no-bg:#FBE3E1;--gr-bg:#ECEFF2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161B;--card:#1A2129;--ink:#E8EEF3;--ink2:#B4C0CB;--ink3:#8593A0;--line:#2C3642;--acc:#5DB4E6;--acc-t:#16303F;
+  --ok:#7FD6A5;--ok-bg:#16352A;--cau:#F1C75B;--cau-bg:#3A3015;--no:#F29A90;--no-bg:#3D1E1B;--gr-bg:#252D36}}
+:root[data-theme="dark"]{--bg:#11161B;--card:#1A2129;--ink:#E8EEF3;--ink2:#B4C0CB;--ink3:#8593A0;--line:#2C3642;--acc:#5DB4E6;--acc-t:#16303F;
+  --ok:#7FD6A5;--ok-bg:#16352A;--cau:#F1C75B;--cau-bg:#3A3015;--no:#F29A90;--no-bg:#3D1E1B;--gr-bg:#252D36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:22px;margin:4px 0 6px}
+.lead{color:var(--ink2);margin:0 0 14px;font-size:14px}
+.sum{position:sticky;top:0;z-index:5;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 16px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.sum-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bar{height:6px;background:var(--gr-bg);border-radius:9px;overflow:hidden;margin:8px 0 10px}.bar i{display:block;height:100%;background:var(--acc)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:var(--bg);border-radius:10px;padding:8px 10px}
+.kpi b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12px;color:var(--ink3)}
+.btns{display:flex;gap:6px}
+button{font:inherit;cursor:pointer}
+.b{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:9px;padding:6px 11px;font-size:13px;font-weight:600;min-height:36px}
+.b.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.guide{background:var(--acc-t);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink2);margin:0 0 16px}
+.guide b{color:var(--ink)}
+.guide ol{margin:6px 0 0;padding-left:18px}
+.it{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 12px}
+.it.done{border-color:var(--acc)}
+.it-hd{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.no{font-size:12px;color:var(--ink3);font-weight:700}
+.nm{font-size:17px;font-weight:700;margin:2px 0}
+.meta{font-size:12.5px;color:var(--ink3)}
+.v{flex-shrink:0;font-weight:800;border-radius:9px;padding:5px 10px;font-size:14px;text-align:center}
+.v small{display:block;font-size:10.5px;font-weight:600;opacity:.8}
+.v-가능{background:var(--ok-bg);color:var(--ok)}.v-부분{background:var(--cau-bg);color:var(--cau)}.v-불가{background:var(--no-bg);color:var(--no)}.v-미확인{background:var(--gr-bg);color:var(--ink2)}
+.ev{margin:10px 0 0;padding:10px 12px;border-left:3px solid var(--acc);background:var(--bg);border-radius:0 9px 9px 0;font-size:14px}
+.ev em{display:block;font-style:normal;color:var(--cau);font-size:13px;margin-top:4px}
+.ev .src{font-size:12px;color:var(--ink3)}
+a.open{display:inline-block;margin-top:10px;font-weight:700;color:var(--acc);text-decoration:none;font-size:14px}
+.qs{margin-top:12px;display:grid;gap:10px}
+.q{font-size:13.5px}
+.q>span{display:block;color:var(--ink2);margin-bottom:5px;font-weight:600}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0}
+.opts label span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;min-height:34px;background:var(--card)}
+.opts input:checked+span{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700}
+.opts input:focus-visible+span{outline:2px solid var(--acc);outline-offset:2px}
+.memo{width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font:inherit;font-size:13.5px;background:var(--card);color:var(--ink)}
+.foot{font-size:12.5px;color:var(--ink3);margin-top:20px}
+@media (max-width:480px){.kpis{grid-template-columns:1fr 1fr 1fr}.kpi b{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>EasyTrip AI 판정 정확도 검증</h1>
+  <p class="lead" id="lead"></p>
+  <div class="sum" id="sum"></div>
+  <div class="guide">
+    <b>이렇게 해줘</b>
+    <ol>
+      <li><b>원문 열기</b>로 블로그 글을 연다.</li>
+      <li>그 글이 이 장소 얘기인지 본다. 다른 장소 얘기면 ‘아니오’.</li>
+      <li>AI 근거는 <b>요약문</b>이야. 문장이 똑같지 않아도 같은 사실이 글에 있으면 ‘있음’, 글에 없는 사실이 섞였으면 ‘일부만’, 전혀 없으면 ‘없음’.</li>
+      <li>휠체어 판정이 글 내용으로 맞는지 고른다. 글만으로 알 수 없으면 ‘판단 불가’.</li>
+    </ol>
+    답은 이 브라우저에만 저장돼. 다 하면 <b>CSV 내보내기</b>로 파일을 받아서 보내줘.
+  </div>
+  <div id="list"></div>
+  <p class="foot" id="foot"></p>
+</div>
+<script>
+const DATA={"meta":{"n":30,"seed":20260930,"only":"","pool":434,"made":"2026-09-30","vc":{"가능":26,"불가":1,"부분":2,"미확인":1}},"items":[{"no":1,"id":"seoul_n_51","region":"서울 강북","name":"탐앤탐스 창동본점","cat":"카페","area":"도봉구 · 도봉구 노해로 285","v":"가능","src":"방문 후기","t":"넓은 매장에 내부 엘리베이터가 있어 유모차 접근성 좋음","w":"","u":"https://blog.naver.com/forestnana/224179209660"},{"no":2,"id":"jeonju_2","region":"전주","name":"평화와평화","cat":"카페","area":"한옥마을 · 전주시 완산구 전라감영4길 16-7","v":"불가","src":"방문 후기","t":"오래된 건물로 엘리베이터 없이 계단으로만 올라감","w":"계단만 있음, 입구 찾기 어려움","u":"https://blog.naver.com/oosiz0403/224404791349"},{"no":3,"id":"gangneung_20","region":"강릉","name":"해광호매운탕","cat":"식당","area":"안목 · 강릉시 창해로 4-2","v":"가능","src":"방문 후기 + 업체 표기","t":"입구 경사로 있어 휠체어 진입 쉬움, 출입구 휠체어 이용 가능","w":"","u":"https://blog.naver.com/holaluna-/224134031797"},{"no":4,"id":"bs_gwangan_4","region":"부산 광안리·대연","name":"카페181","cat":"카페","area":"수영구 · 수영구 광안해변로 181","v":"가능","src":"방문 후기 + 업체 표기","t":"15층 엘리베이터 이동, 화장실·출입구·좌석 휠체어 가능","w":"","u":"https://blog.naver.com/hyukianger/224345658671"},{"no":5,"id":"gyeongju_17","region":"경주","name":"워터도트 티룸","cat":"카페","area":"동궁과월지 · 경주시 원효로 180","v":"가능","src":"방문 후기","t":"2층에 있는 찻집이지만 엘리베이터가 있고 건물 앞 주차 공간 있음","w":"","u":"https://blog.naver.com/tmfrlx852/224316910780"},{"no":6,"id":"seoul_n_25","region":"서울 강북","name":"세종이야기 충무공이야기","cat":"문화시설","area":"종로구 · 종로구 세종대로 175","v":"가능","src":"방문 후기","t":"세종대왕 동상 뒤 출입구에서 엘리베이터로 전시관 진입 가능","w":"KT빌딩 앞 출입구는 계단 이용","u":"https://blog.naver.com/thecosmos_/224260598704"},{"no":7,"id":"bs_seomyeon_17","region":"부산 서면·부산역","name":"아르반호텔","cat":"숙박","area":"부산진구 · 부산진구 중앙대로691번길 32","v":"가능","src":"업체 표기만","t":"3성급 호텔, 휠체어 출입 가능 표기, 휠체어 이용 가능으로 판단","w":"","u":"https://blog.naver.com/wancamepr/224370118277"},{"no":8,"id":"y42","region":"경산","name":"경수산은지물회","cat":"식당","area":"계양동(임당)","v":"가능","src":"업체 표기만","t":"출입구 휠체어, 장애인주차","w":"","u":"https://blog.naver.com/poplarvintage/224414333028"},{"no":9,"id":"seoul_n_97","region":"서울 강북","name":"한정선 성수본점","cat":"카페","area":"성동구 · 성동구 연무장길 43-1","v":"가능","src":"업체 표기만","t":"출입구 휠체어 이용 가능으로 표기된 성수 1층 매장, 주차는 불가","w":"주차 불가","u":"https://blog.naver.com/wizardye/224420628338"},{"no":10,"id":"seoul_s_60","region":"서울 강남","name":"베네관광호텔 잠실점","cat":"숙박","area":"송파구 · 송파구 오금로11길 29-15","v":"가능","src":"업체 표기만","t":"화장실·출입구·좌석 휠체어 가능, 장애인 주차구역 표기","w":"주차는 타워주차 방식","u":"https://blog.naver.com/dailyzandang/224329845640"},{"no":11,"id":"y11","region":"경산","name":"서온반","cat":"식당","area":"경산 시내","v":"가능","src":"방문 후기","t":"휠체어·유모차용 경사로 별도","w":"","u":"https://blog.naver.com/sye00n/224385518849"},{"no":12,"id":"seoul_s_27","region":"서울 강남","name":"로마옥 마곡","cat":"식당","area":"강서구 · 강서구 마곡중앙로 136","v":"가능","src":"방문 후기","t":"LG아트센터 3층 매장, 엘리베이터로 휠체어·유모차 진입 가능","w":"","u":"https://blog.naver.com/forest_lion_bunny/224402264341"},{"no":13,"id":"gangneung_41","region":"강릉","name":"강릉국시집","cat":"식당","area":"강릉역 · 강릉시 강릉대로 244","v":"가능","src":"업체 표기만","t":"출입구·좌석 휠체어 이용 가능, 인근 공영주차장 무료","w":"","u":"https://blog.naver.com/sun_ovo/223909930910"},{"no":14,"id":"bs_west_6","region":"부산 서부산","name":"공감식당 덕천점","cat":"식당","area":"북구 · 북구 덕천1길 50","v":"가능","src":"방문 후기","t":"매장 내부에 엘리베이터가 있어 층간 이동 가능","w":"휠체어 직접 언급 없음","u":"https://blog.naver.com/ufosun27/224154170135"},{"no":15,"id":"seoul_n_72","region":"서울 강북","name":"다퍼줘","cat":"식당","area":"동대문구 · 동대문구 왕산로 155-1","v":"가능","src":"업체 표기만","t":"업체 정보상 출입구 휠체어 이용 가능, 매장 주차는 불가","w":"주차 불가, 인근 공영주차장 이용","u":"https://blog.naver.com/1202170/224025075596"},{"no":16,"id":"bs_seomyeon_5","region":"부산 서면·부산역","name":"메종드루아","cat":"카페","area":"동구 · 동구 충장대로 160","v":"가능","src":"방문 후기 + 업체 표기","t":"화장실·출입구·좌석 휠체어 가능, 부산역에서 평지 보행데크 연결","w":"","u":"https://blog.naver.com/ponlog/224123780796"},{"no":17,"id":"bs_west_2","region":"부산 서부산","name":"홍유단 사상점","cat":"식당","area":"사상구 · 사상구 새벽로 220","v":"가능","src":"방문 후기 + 업체 표기","t":"2·3층 매장, 엘리베이터·넓은 주차장, 휠체어 가능","w":"","u":"https://blog.naver.com/bum_159/224362102501"},{"no":18,"id":"gyeongju_31","region":"경주","name":"보문갈비","cat":"식당","area":"보문 · 경주시 보문로 529","v":"가능","src":"업체 표기만","t":"편의시설 정보에 휠체어 이용 가능으로 표기된 보문단지 갈비집","w":"","u":"https://blog.naver.com/djdrmadjdrma_/224253614254"},{"no":19,"id":"gangneung_14","region":"강릉","name":"당신의안목펜션","cat":"숙박","area":"안목 · 강릉시 창해로14번길 6","v":"가능","src":"방문 후기","t":"건물 입구에 엘리베이터 있어 이동 편리","w":"엘리베이터 근거만 있음, 휠체어 직접 언급 없음","u":"https://blog.naver.com/tpfus921111/224351417650"},{"no":20,"id":"gyeongju_7","region":"경주","name":"바니베어뮤지엄","cat":"문화시설","area":"보문 · 경주시 보문로 280-34","v":"가능","src":"방문 후기","t":"휠체어 대여 가능, 장애인 화장실과 엘리베이터가 있는 실내 박물관","w":"","u":"https://blog.naver.com/petal2186/224377353147"},{"no":21,"id":"seoul_n_54","region":"서울 강북","name":"세라젬웰파크 청량리점","cat":"카페","area":"동대문구 · 동대문구 고산자로32길 78","v":"가능","src":"방문 후기","t":"지하 매장이지만 상가 엘리베이터로 유모차 이동 편함","w":"","u":"https://blog.naver.com/chaessay/224296487661"},{"no":22,"id":"seoul_s_3","region":"서울 강남","name":"롯데월드아쿠아리움","cat":"문화시설","area":"송파구 · 송파구 올림픽로 300","v":"가능","src":"방문 후기","t":"관람로 전체가 경사로·엘리베이터로 연결돼 유모차·휠체어 이동 용이","w":"주말·성수기 주차 입차 대기 길 수 있음","u":"https://blog.naver.com/nej3697/224414234909"},{"no":23,"id":"y22","region":"경산","name":"카페엔라포토","cat":"카페","area":"사정동(경산역) · 선비길2길 44","v":"부분","src":"방문 후기","t":"입구에 턱","w":"휠체어·유모차 불편 언급","u":"https://blog.naver.com/dgskyroad/224279110064"},{"no":24,"id":"gyeongju_5","region":"경주","name":"수제팥집호문당","cat":"식당","area":"보문 · 경주시 천북남로 14","v":"부분","src":"방문 후기 + 업체 표기","t":"1층 출입 휠체어 가능 표기, 2층은 계단만 있어 이용 어려움","w":"2층 가는 길은 계단뿐","u":"https://blog.naver.com/twelveg/224362763129"},{"no":25,"id":"bs_songdo_10","region":"부산 송도·영도","name":"영도면옥","cat":"식당","area":"영도구 · 영도구 해양로 205-1","v":"가능","src":"방문 후기 + 업체 표기","t":"휠체어 출입 가능 확인된 1층 식당","w":"","u":"https://blog.naver.com/tybsjh/223742349351"},{"no":26,"id":"gangneung_4","region":"강릉","name":"에이엠브레드","cat":"카페","area":"안목 · 강릉시 창해로14번길 24","v":"가능","src":"방문 후기","t":"3층 매장, 엘리베이터 있어 유모차 이동 편리","w":"엘리베이터 근거만 있음, 휠체어 직접 언급 없음","u":"https://blog.naver.com/ggoso__/224395957459"},{"no":27,"id":"bs_dongnae_17","region":"부산 동래·연제·금정","name":"하얏트 플레이스 부산 연산","cat":"숙박","area":"연제구 · 연제구 중앙대로 1121","v":"가능","src":"업체 표기만","t":"지도 정보에 휠체어 출입 가능 표기","w":"","u":"https://blog.naver.com/bmseo0124/224184818326"},{"no":28,"id":"jeonju_7","region":"전주","name":"풍남가족호텔","cat":"숙박","area":"객사 · 전주시 완산구 전주객사2길 45-7","v":"가능","src":"방문 후기","t":"입구와 객실 화장실 턱 없음, 장애인 이용객실 있음","w":"장애인 객실을 반려동물 전용으로도 운영하는 듯","u":"https://blog.naver.com/gyxung/224008751563"},{"no":29,"id":"y19","region":"경산","name":"삼성현공원","cat":"공원","area":"남산면","v":"미확인","src":"방문 후기","t":"유모차 이용 가능, 실내 영아놀이터","w":"휠체어 직접 언급 없음","u":"https://blog.naver.com/habbu-/224268516832"},{"no":30,"id":"gangneung_24","region":"강릉","name":"스테이안목을담다","cat":"숙박","area":"안목 · 강릉시 창해로14번길 16","v":"가능","src":"방문 후기","t":"6층 건물, 엘리베이터로 객실 이동","w":"엘리베이터 근거만 있음, 휠체어 직접 언급 없음","u":"https://blog.naver.com/limtf/224397161484"}]};
+const KEY='et-valid-'+(DATA.meta.only||DATA.meta.seed)+'-'+DATA.meta.n;
+let A={};try{A=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(A))}catch(e){}};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const QS=[
+  ['place','원문이 이 장소 얘기야?',['예','아니오']],
+  ['evi','AI 근거가 원문에 있어?',['있음','일부만','없음']],
+  ['verdict','휠체어 판정이 맞아?',['맞음','틀림','판단 불가']]];
+/* 윌슨 95% 신뢰구간 */
+function wilson(k,n){if(!n)return null;const z=1.96,p=k/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return [Math.max(0,c-h),Math.min(1,c+h)]}
+const pct=x=>(x*100).toFixed(1)+'%';
+function stat(){
+  const v=Object.values(A),m=DATA.meta;
+  const done=DATA.items.filter(it=>{const a=A[it.id]||{};return a.place&&a.evi&&a.verdict}).length;
+  const ok=v.filter(a=>a.verdict==='맞음').length,bad=v.filter(a=>a.verdict==='틀림').length,unk=v.filter(a=>a.verdict==='판단 불가').length;
+  const ev=v.filter(a=>a.evi).length,hal=v.filter(a=>a.evi==='없음').length,part=v.filter(a=>a.evi==='일부만').length;
+  const pl=v.filter(a=>a.place).length,plno=v.filter(a=>a.place==='아니오').length;
+  const acc=ok+bad?ok/(ok+bad):null,ci=wilson(ok,ok+bad),hr=ev?hal/ev:null,hci=wilson(hal,ev);
+  document.getElementById('sum').innerHTML=`<div class="sum-top"><b>완료 ${done} / ${m.n}</b><div class="btns"><button class="b pri" onclick="exportCSV()">CSV 내보내기</button><button class="b" onclick="resetAll()">초기화</button></div></div>
+   <div class="bar"><i style="width:${done/m.n*100}%"></i></div>
+   <div class="kpis">
+    <div class="kpi"><span>판정 정확도</span><b>${acc==null?'–':pct(acc)}</b><span>${ok}/${ok+bad}${ci?` · 95% ${pct(ci[0])}~${pct(ci[1])}`:''}${unk?` · 판단불가 ${unk}`:''}</span></div>
+    <div class="kpi"><span>근거 환각률</span><b>${hr==null?'–':pct(hr)}</b><span>없음 ${hal}/${ev}${hci?` · 95% ${pct(hci[0])}~${pct(hci[1])}`:''}${part?` · 일부만 ${part}`:''}</span></div>
+    <div class="kpi"><span>장소 불일치</span><b>${pl?plno:'–'}</b><span>응답 ${pl}곳 중</span></div>
+   </div>`;
+}
+function render(){
+  const m=DATA.meta;
+  document.getElementById('lead').innerHTML=m.only?`AI가 ‘${esc(m.only)}’로 판정한 <b>${m.n}곳 전부</b>를 검증해. 무작위 표본에는 ‘${esc(m.only)}’가 거의 안 들어가서 따로 봐야 해.`:`앱에 들어간 AI 판정 ${m.pool}곳 중 <b>${m.n}곳</b>을 무작위로 뽑았어 (시드 ${m.seed}, 판정 분포 ${Object.entries(m.vc).map(([k,v])=>k+' '+v).join(' · ')}).`;
+  document.getElementById('list').innerHTML=DATA.items.map(it=>{const a=A[it.id]||{},done=a.place&&a.evi&&a.verdict;
+    return `<div class="it${done?' done':''}" id="it-${esc(it.id)}">
+     <div class="it-hd"><div><div class="no">#${it.no} · ${esc(it.region)} · ${esc(it.cat)}</div><div class="nm">${esc(it.name)}</div><div class="meta">${esc(it.area)}</div></div>
+      <div class="v v-${esc(it.v)}">${esc(it.v)}<small>휠체어 판정</small></div></div>
+     <div class="ev"><span class="src">AI 근거 · ${esc(it.src)}</span><br>${esc(it.t)}${it.w?`<em>주의 · ${esc(it.w)}</em>`:''}</div>
+     <a class="open" href="${esc(it.u)}" target="_blank" rel="noopener">원문 열기 ↗</a>
+     <div class="qs">${QS.map(([k,l,os])=>`<div class="q"><span>${l}</span><div class="opts" role="radiogroup" aria-label="${l}">${os.map(o=>`<label><input type="radio" name="${esc(it.id)}-${k}" value="${o}" ${a[k]===o?'checked':''} onchange="setA('${esc(it.id)}','${k}',this.value)"><span>${o}</span></label>`).join('')}</div></div>`).join('')}
+      <input class="memo" placeholder="메모 (선택) · 예: 입구 계단 2칸이라고 적혀 있음" value="${esc(a.memo||'')}" onchange="setA('${esc(it.id)}','memo',this.value)" aria-label="메모"></div>
+    </div>`}).join('');
+  document.getElementById('foot').textContent=m.only?'전수 검증이라 표본 오차는 없어. 대신 ‘불가’가 아닌데 놓친 곳(거짓 음성)은 이 시트로 알 수 없어.':'표본이 30곳이라 신뢰구간이 넓어. 예를 들어 28/30이 맞으면 정확도 93.3%, 95% 신뢰구간은 약 78.7~98.2%야. 기획서에는 이 구간을 같이 적어.';
+  stat();
+}
+function setA(id,k,v){A[id]=A[id]||{};A[id][k]=v;save();stat();
+  const a=A[id],el=document.getElementById('it-'+id);if(el)el.classList.toggle('done',!!(a.place&&a.evi&&a.verdict))}
+function resetAll(){if(!confirm('답을 전부 지울까?'))return;A={};save();render()}
+function exportCSV(){
+  const q=x=>'"'+String(x==null?'':x).replace(/"/g,'""')+'"';
+  const rows=[['no','id','region','name','verdict','source','ai_evidence','url','place_match','evidence_in_source','verdict_correct','memo']]
+    .concat(DATA.items.map(it=>{const a=A[it.id]||{};return [it.no,it.id,it.region,it.name,it.v,it.src,it.t,it.u,a.place,a.evi,a.verdict,a.memo]}));
+  const blob=new Blob(['﻿'+rows.map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv;charset=utf-8'});
+  const u=URL.createObjectURL(blob),l=document.createElement('a');l.href=u;l.download='EasyTrip_정확도검증_'+(DATA.meta.only?DATA.meta.only+'_전수':DATA.meta.n+'곳')+'_결과.csv';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+render();
+</script>
+</body>
+</html>
