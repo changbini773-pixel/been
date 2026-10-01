@@ -70,7 +70,7 @@ function etShell(){return `
    <div class="mapc">
     <div class="search">${ic('search',18,2.2)}<input id="q" type="search" enterkeyhint="search" placeholder="장소·지역 검색 (예: 불국사, 강릉)" oninput="renderSpots()" onkeydown="if(event.key==='Enter'){event.preventDefault();mapSearch()}" aria-label="장소 검색"><button class="srch-go" onclick="mapSearch()">이동</button></div>
     <div class="lmap" id="lmap" aria-label="대한민국 지도"></div>
-    <div class="map-ft"><button class="mini" onclick="mapKorea()">전국 보기</button><button class="mini" onclick="mapRegion()" id="mapRegBtn">현재 지역</button><span id="mapMsg"></span></div>
+    <div class="map-ft"><button class="mini" onclick="mapKorea()">전국 보기</button><button class="mini" onclick="mapRegion()" id="mapRegBtn">현재 지역</button><button class="mini" id="kmBtn" onclick="kmSheet()" hidden>카카오 지도 연결</button><span id="mapMsg"></span></div>
    </div>
    <div class="fchips" id="fchips"></div>
    <div id="mineBox"></div>

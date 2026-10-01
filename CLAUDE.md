@@ -17,6 +17,7 @@ app/                 앱 소스 (단일 HTML을 역할별로 분리한 것) — 
   index.html         브라우저로 바로 열림 (서버 불필요)
   build.py           → app/dist/EasyTrip.html 한 파일로 합침 (배포·아티팩트용)
   css/style.css, js/01~35_*.js, data/{regions_real,regions_base,images}.js
+  js/36_kakao_map.js  편의 스팟 지도: 카카오맵(키는 브라우저 localStorage, 코드에 넣지 말 것) / 실패 시 SVG 간이 지도
   js/35_type_judg.js  v9 이동 유형 3종 판정(TYPE_JUDG)·유형 필터·유형별 동선
 tools/               merge_types.js(노약자·시각 판정 CSV → js/35 병합), make_validation.js(정확도 검증 시트)
 validation/          생성된 정확도 검증 시트·표본 CSV

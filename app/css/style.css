@@ -452,3 +452,20 @@ body.big .et .lmap{zoom:calc(1/1.15)}
 
 /* 빠른 버튼(근처 화장실·할인 정보·동행자): 3D 이미지 아이콘은 더 크게 */
 .qbtn .qi:has(.mobimg){width:60px;height:60px;border-radius:16px}
+
+/* 카카오 지도: 핀·팝업·범례, 키 입력 시트 */
+.kmk{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35);cursor:pointer;box-sizing:border-box}
+.kmpop{margin-bottom:18px}
+.lmap .kmleg{z-index:10}
+.map-ft .mini[hidden]{display:none}
+.kmform p{font-size:14px;line-height:1.55;margin:0 0 10px;color:var(--ink-2)}
+.kmform code{font-family:var(--mono);font-size:12.5px;background:var(--line-2);padding:1px 5px;border-radius:5px}
+.kmform input{width:100%;box-sizing:border-box;min-height:46px;border:1px solid var(--line);border-radius:12px;padding:0 12px;font-size:15px;margin:4px 0 10px}
+.kmrow{display:flex;gap:8px}.kmrow .btn{flex:1}
+.kmform .kmnote{font-size:12.5px;color:var(--ink-3)}
+
+/* 장소 사진: 늘려서 자르지 않고 원래 비율로 가운데에 놓고, 빈 곳은 같은 사진을 흐리게 깔아 채운다 */
+.spot-ph.fit{overflow:hidden;background-size:cover;background-position:center}
+.spot-ph.fit::before{content:'';position:absolute;inset:-18px;background:inherit;background-size:cover;background-position:center;filter:blur(18px) saturate(1.1)}
+.spot-ph.fit .ph-img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+.spot-ph.fit .ph-img.low{height:112px;border-radius:10px;box-shadow:0 2px 10px rgba(14,31,43,.25)}
