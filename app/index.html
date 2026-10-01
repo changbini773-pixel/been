@@ -7,8 +7,9 @@
 <meta name="apple-mobile-web-app-title" content="EasyTrip">
 <title>EasyTrip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- 외부 글꼴·지도 스타일은 비동기로 받는다. 네트워크가 막히거나 응답이 없어도 앱 실행을 막지 않게 (media=print → 로드 후 all) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'">
 <style>html,body{margin:0;background:#D3E4EF}#et-msg{font-family:-apple-system,sans-serif;padding:40px 24px;text-align:center;line-height:1.6;color:#0E1F2B}</style>
 <!-- 스타일: css/style.css 를 고치면 화면 디자인이 바뀝니다 (id="et-css" 유지) -->
 <link id="et-css" rel="stylesheet" href="css/style.css">
@@ -19,7 +20,8 @@ window.onerror=function(m,src,l,c){var d=document.getElementById('et-msg');if(!d
 <body>
 <noscript><div id="et-msg">이 앱은 JavaScript가 필요해요.</div></noscript>
 <div id="et-mount"><div id="et-msg">EasyTrip 불러오는 중…</div></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet은 지역 미니맵에만 쓴다. async라서 못 받아도 앱은 뜨고, 늦게 받으면 그때 미니맵을 그린다 -->
+<script async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onload="if(window.ET_ROOT&&window.loadRegPhoto)loadRegPhoto().catch(function(){})"></script>
 
 <!-- ① 데이터 (여기 파일만 고치면 장소·지역 내용이 바뀝니다) -->
 <script src="data/images.js"></script>
