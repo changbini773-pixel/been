@@ -1,0 +1,479 @@
+[
+ {
+  "id": "1116271250",
+  "elder": "가능",
+  "elder_quote": "출입구휠체어이용가능",
+  "elder_note": "출입구 휠체어 이용 가능으로 턱 부담이 적은 1층 매장",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1119098325",
+  "elder": "가능",
+  "elder_quote": "출입구, 화장실 휠체어 이용 가능",
+  "elder_note": "출입구와 화장실 모두 휠체어 이용 가능으로 표시됨",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1165518083",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1172632105",
+  "elder": "가능",
+  "elder_quote": "지하4층 ~ 지상 5층 저층전용 엘리베이터",
+  "elder_note": "객실·수영장 등 층간 이동에 엘리베이터 이용 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1190741559",
+  "elder": "부분",
+  "elder_quote": "화장실 밖으로 나가서 오른쪽 건물 반층",
+  "elder_note": "매장은 휠체어 가능하나 화장실이 외부 반층에 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1197347415",
+  "elder": "부분",
+  "elder_quote": "계단을 올라가면 야외 테라스가",
+  "elder_note": "좌석 휠체어 가능하나 테라스 등은 계단 이동 필요",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1203192814",
+  "elder": "가능",
+  "elder_quote": "출입구, 좌석, 화장실 휠체어 가능",
+  "elder_note": "출입구·좌석·화장실 휠체어 가능, 장애인 주차구역 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1258334839",
+  "elder": "가능",
+  "elder_quote": "출입구, 화장실 휠체어이용가능",
+  "elder_note": "출입구와 화장실 휠체어 이용 가능, 장애인주차구역 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1280684378",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1282261224",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1298505567",
+  "elder": "가능",
+  "elder_quote": "출입구 휠체어이용가능,좌석휠체어이용가능",
+  "elder_note": "출입구와 좌석 모두 휠체어 이용 가능, 대기공간 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1310053611",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1317959049",
+  "elder": "가능",
+  "elder_quote": "화장실 휠체어 이용가능, 장애인 주차구역",
+  "elder_note": "화장실 휠체어 이용 가능하고 장애인 주차구역 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1332590568",
+  "elder": "가능",
+  "elder_quote": "출입구 휠체어 이용가능, 좌석 휠체어 이용가능",
+  "elder_note": "출입구와 좌석 휠체어 이용 가능하다고 안내됨",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1335272736",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1410577328",
+  "elder": "가능",
+  "elder_quote": "단체 이용 가능/휠체어 이용가능",
+  "elder_note": "편의정보에 휠체어 이용 가능으로 표시된 카페",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1419567762",
+  "elder": "가능",
+  "elder_quote": "출입구 휠체어/좌석 휠체어 이용가능",
+  "elder_note": "건대점 출입구와 좌석 휠체어 이용 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1426237443",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1440347564",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1441425449",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1467670437",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1474974342",
+  "elder": "부분",
+  "elder_quote": "완만한 경사로인데",
+  "elder_note": "경사는 완만하게 정비됐지만 언덕을 오르는 긴 도보",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1512054004",
+  "elder": "부분",
+  "elder_quote": "경사로(목재데크)**가 설치되어 있어 접근성이 좋습니다",
+  "elder_note": "식물원 경사로는 있으나 흙길·경사 산책로와 긴 도보",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1532325160",
+  "elder": "불가",
+  "elder_quote": "건물에 엘리베이터가 없어서 3층까지 계단으로 올라가야 해요",
+  "elder_note": "엘리베이터 없는 건물 3층으로 계단으로만 이동 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1538962921",
+  "elder": "가능",
+  "elder_quote": "문 앞 턱이 거의 없어서 출입구 휠체어 이용 가능하다",
+  "elder_note": "문 앞 턱이 거의 없고 출입구·좌석 휠체어 이용 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1595496576",
+  "elder": "가능",
+  "elder_quote": "턱이 없어서 실제로 11~3시 사이에 유모차 끌고",
+  "elder_note": "입구에 턱이 없어 유모차도 드나드는 카페",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1613335532",
+  "elder": "부분",
+  "elder_quote": "경사로가 심한 이태원 지형을 잘 이용한 공간",
+  "elder_note": "경사가 심한 지형에 지어진 공간이라 이동 부담 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1618272681",
+  "elder": "가능",
+  "elder_quote": "2층으로 올라가는 길은 계단과 엘리베이터가 있는데요",
+  "elder_note": "2층 이동에 계단 외 엘리베이터도 이용 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1629378951",
+  "elder": "부분",
+  "elder_quote": "완만한 경사로인데",
+  "elder_note": "도보 경로는 완만하게 정비됐지만 언덕을 오르는 긴 길",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1633584023",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1647820289",
+  "elder": "가능",
+  "elder_quote": "엘리베이터도 있다!",
+  "elder_note": "호스텔 내부에 엘리베이터가 있어 층간 이동 편리",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1660439963",
+  "elder": "가능",
+  "elder_quote": "대기공간 구비, 휠체어 이용가능",
+  "elder_note": "1층 매장으로 휠체어 이용 가능, 대기공간도 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1685526961",
+  "elder": "가능",
+  "elder_quote": "건물 입구 바로 왼쪽에 엘리베이터가 있어요",
+  "elder_note": "15층 매장이지만 엘리베이터 있고 대기 의자도 마련",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1729913415",
+  "elder": "가능",
+  "elder_quote": "입구에 경사로가 있어서 유모차 이동이 쉬워요",
+  "elder_note": "입구 경사로 있고 화장실·출입구·좌석 휠체어 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1754511299",
+  "elder": "가능",
+  "elder_quote": "출입구 휠체어 이용 가능",
+  "elder_note": "출입구 휠체어 이용 가능한 1층 매장, 대신 웨이팅 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1771512259",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1817798476",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1820258951",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1828440280",
+  "elder": "가능",
+  "elder_quote": "유아의자 / 출입구 휠체어 가능",
+  "elder_note": "2층 매장이나 출입구 휠체어 이용 가능으로 안내됨",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1834028208",
+  "elder": "부분",
+  "elder_quote": "살짝 돌아서 들어가면 완만한 경사로로 갈 수 있다",
+  "elder_note": "바로 가는 길은 가파른 계단, 우회하면 완만한 경사로",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1910736029",
+  "elder": "불가",
+  "elder_quote": "1층부터 3층까지 모두 계단으로 이동해야",
+  "elder_note": "엘리베이터 없이 1~3층을 높은 계단으로만 이동",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1913815654",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1952478679",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1953818769",
+  "elder": "부분",
+  "elder_quote": "완만한 경사로인데",
+  "elder_note": "경사는 완만하게 정비됐지만 언덕을 오르는 긴 도보",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1960450516",
+  "elder": "가능",
+  "elder_quote": "엘리베이터도 있어서 오기 좋다",
+  "elder_note": "2층 매장이지만 엘리베이터로 편하게 이동 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1970735652",
+  "elder": "가능",
+  "elder_quote": "계단으로 2층 오시거나 엘리베이터 타고 올라오시면 돼요",
+  "elder_note": "2층 이상 매장이나 엘리베이터 이용 가능",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1992081643",
+  "elder": "가능",
+  "elder_quote": "휠체어 입장 가능",
+  "elder_note": "1층 매장으로 휠체어 입장 가능하다고 안내됨",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "1996492077",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "2003032565",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "2050246779",
+  "elder": "가능",
+  "elder_quote": "출입구, 좌석 휠체어 이용가능",
+  "elder_note": "출입구와 좌석 휠체어 이용 가능, 매장 앞 주차",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "2066017632",
+  "elder": "가능",
+  "elder_quote": "출입구 휠체어 이용가능, 좌석 휠체어 이용가능",
+  "elder_note": "출입구·좌석 휠체어 가능, 장애인 주차구역 있음",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "2093334088",
+  "elder": "불가",
+  "elder_quote": "3층인데 엘리베이터가 없으니",
+  "elder_note": "엘리베이터 없는 3층이라 계단으로만 올라가야 함",
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ },
+ {
+  "id": "2098843556",
+  "elder": "미확인",
+  "elder_quote": null,
+  "elder_note": null,
+  "visual": "미확인",
+  "visual_quote": null,
+  "visual_note": null
+ }
+]

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EasyTrip">
+<title>EasyTrip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>html,body{margin:0;background:#D3E4EF}#et-msg{font-family:-apple-system,sans-serif;padding:40px 24px;text-align:center;line-height:1.6;color:#0E1F2B}</style>
+<!-- 스타일: css/style.css 를 고치면 화면 디자인이 바뀝니다 (id="et-css" 유지) -->
+<link id="et-css" rel="stylesheet" href="css/style.css">
+<script>
+window.onerror=function(m,src,l,c){var d=document.getElementById('et-msg');if(!d){d=document.createElement('div');d.id='et-msg';document.body.insertBefore(d,document.body.firstChild)}d.style.display='block';d.innerHTML='화면을 불러오지 못했어요.<br><small style="color:#5A6A74">'+String(m).replace(/</g,'&lt;')+' ('+l+':'+c+')</small>';};
+</script>
+</head>
+<body>
+<noscript><div id="et-msg">이 앱은 JavaScript가 필요해요.</div></noscript>
+<div id="et-mount"><div id="et-msg">EasyTrip 불러오는 중…</div></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- ① 데이터 (여기 파일만 고치면 장소·지역 내용이 바뀝니다) -->
+<script src="data/images.js"></script>
+<script src="data/regions_base.js"></script>
+<script src="data/regions_real.js"></script>
+
+<!-- ② 기능 코드 (번호 순서대로 불러와야 합니다 — 순서를 바꾸지 마세요) -->
+<script src="js/01_state_config.js"></script>
+<script src="js/02_shell_markup.js"></script>
+<script src="js/03_helpers.js"></script>
+<script src="js/04_calendar.js"></script>
+<script src="js/05_route_plan.js"></script>
+<script src="js/06_mobility.js"></script>
+<script src="js/07_region.js"></script>
+<script src="js/08_spots.js"></script>
+<script src="js/09_reviews.js"></script>
+<script src="js/10_reports_me.js"></script>
+<script src="js/11_sheets_ui.js"></script>
+<script src="js/12_geo_map.js"></script>
+<script src="js/13_region_photos.js"></script>
+<script src="js/14_init.js"></script>
+<script src="js/15_boot.js"></script>
+<script src="js/20_ai.js"></script>
+<script src="js/30_region_picker.js"></script>
+<script src="js/31_regions_install.js"></script>
+<script src="js/32_map_svg.js"></script>
+<script src="js/33_category_art.js"></script>
+<script src="js/34_spot_photos.js"></script>
+<script src="js/35_type_judg.js"></script>
+</body>
+</html>

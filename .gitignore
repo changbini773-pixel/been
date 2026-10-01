@@ -1,3 +1,7 @@
 node_modules/
 *.png
 merge_unmatched.csv
+app/dist/
+__pycache__/
+*.log
+.env

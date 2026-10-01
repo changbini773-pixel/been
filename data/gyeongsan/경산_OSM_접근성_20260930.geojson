@@ -1,0 +1,329 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n366677068",
+    "name": "경산역",
+    "category": "교통(역)",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "한국철도공사 / 도시철도 환승"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.72761,
+     35.81933
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n7077071800",
+    "name": "대한노인회 자인면분회",
+    "category": "복지시설",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "자인면 자인로 188-12"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.82437,
+     35.81674
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n7095717751",
+    "name": "경산시청 별관",
+    "category": "공공기관",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "원효로 23"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.74034,
+     35.82451
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w115845182",
+    "name": "공과대학 7호관(정보통신대학 2호관)",
+    "category": "대학 건물",
+    "wheelchair": "yes",
+    "toilets_wheelchair": "yes",
+    "note": "대구대 경산캠퍼스 추정"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.85446,
+     35.90017
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w115845185",
+    "name": "재활과학대학",
+    "category": "대학 건물",
+    "wheelchair": "yes",
+    "toilets_wheelchair": "yes",
+    "note": "대구대 경산캠퍼스 추정"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.85302,
+     35.9
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w468967476",
+    "name": "창업보육센터",
+    "category": "대학 건물",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "대학로 280 (영남대)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.75626,
+     35.82611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w684972728",
+    "name": "공중화장실(이름 없음)",
+    "category": "화장실",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "남녀공용"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.80868,
+     35.91283
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w115823447",
+    "name": "주차장(이름 없음, 100면)",
+    "category": "주차장",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": ""
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.84537,
+     35.89905
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n11828697312",
+    "name": "출입구(이름 없음)",
+    "category": "출입구",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "동일 시설 추정 그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77401,
+     35.84165
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n11829746762",
+    "name": "출입구(이름 없음, 1층 보조)",
+    "category": "출입구",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77448,
+     35.84259
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n11829746765",
+    "name": "출입구(이름 없음, 1층)",
+    "category": "출입구",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77464,
+     35.8426
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n11829746763",
+    "name": "출입문(롤링게이트)",
+    "category": "게이트",
+    "wheelchair": "yes",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.7745,
+     35.84275
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "n11829746764",
+    "name": "출입문(롤링게이트, 잠김)",
+    "category": "게이트",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77451,
+     35.8429
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w1273635757",
+    "name": "출입문(잠김)",
+    "category": "게이트",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77359,
+     35.84181
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w1273635763",
+    "name": "출입문(잠김)",
+    "category": "게이트",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77393,
+     35.8417
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w1273858529",
+    "name": "출입문(롤링게이트, 잠김)",
+    "category": "게이트",
+    "wheelchair": "limited",
+    "toilets_wheelchair": null,
+    "note": "그룹 A"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.77443,
+     35.84269
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w930662213",
+    "name": "산책로(비포장)",
+    "category": "보행로",
+    "wheelchair": "no",
+    "toilets_wheelchair": null,
+    "note": "surface=unpaved"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.7267,
+     35.80128
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "osm_id": "w930662214",
+    "name": "산책로(비포장)",
+    "category": "보행로",
+    "wheelchair": "no",
+    "toilets_wheelchair": null,
+    "note": "surface=unpaved"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     128.71945,
+     35.80511
+    ]
+   }
+  }
+ ]
+}

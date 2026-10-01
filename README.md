@@ -4,12 +4,17 @@
 
 | 경로 | 내용 |
 |---|---|
-| `app/easytrip.html` | 앱 전체 (단일 HTML, 사진·데이터 내장, 오프라인 동작). v9 |
+| `app/` | 앱 소스 (역할별 분리, v9). `app/index.html`을 바로 열거나 `python3 app/build.py` → `app/dist/EasyTrip.html` 한 파일. 자세한 구조는 `app/README.md` |
+| `pipeline/`, `data/` | 데이터 수집·판정 코드와 중간 산출물 (`CLAUDE.md` 3절) |
+| `docs/` | 작업 이력, 기획서 초안, 참가신청서 양식 |
+| `tests/compare_render.py` | Playwright 스모크 테스트 |
 | `tools/merge_types.js` | 노약자·시각장애 판정 CSV를 검증해서 앱에 병합 |
 | `tools/make_validation.js` | 정확도 검증 시트 생성 (무작위 30곳 / 판정별 전수) |
 | `validation/` | 생성된 검증 시트와 표본 CSV |
 
 ## v9 변경 (2026-09-30)
+
+코드는 `app/js/35_type_judg.js`에 있다.
 
 - 장소마다 **휠체어 / 노약자 / 시각장애 동반** 판정을 따로 둔다 (`TYPE_JUDG`).
   - 휠체어는 기존 판정(`s.v`, `s.evi`)을 그대로 쓴다.
@@ -22,8 +27,9 @@
 ## 노약자·시각장애 판정 넣기
 
 ```bash
-node tools/merge_types.js app/easytrip.html 노약자판정.csv 시각판정.csv --dry   # 미리보기
-node tools/merge_types.js app/easytrip.html 노약자판정.csv 시각판정.csv         # 병합
+node tools/merge_types.js app 노약자판정.csv 시각판정.csv --dry   # 미리보기
+node tools/merge_types.js app 노약자판정.csv 시각판정.csv         # 병합 → app/js/35_type_judg.js
+python3 app/build.py                                              # 배포용 한 파일 다시 만들기
 ```
 
 CSV 열: `id`(또는 `name`+`region`), `type`, `verdict`, `source`, `quote`, `url`, `snippet`(선택).
@@ -33,8 +39,8 @@ CSV 열: `id`(또는 `name`+`region`), `type`, `verdict`, `source`, `quote`, `ur
 ## 정확도 검증
 
 ```bash
-node tools/make_validation.js app/easytrip.html                 # 무작위 30곳 (시드 20260930)
-node tools/make_validation.js app/easytrip.html --verdict=불가   # 불가 27곳 전수
+node tools/make_validation.js app                 # 무작위 30곳 (시드 20260930)
+node tools/make_validation.js app --verdict=불가   # 불가 27곳 전수
 ```
 
 `validation/*.html`을 브라우저로 열고 원문 링크와 대조해서 답한다. 답은 그 브라우저에만 저장되고, **CSV 내보내기**로 결과를 받는다.

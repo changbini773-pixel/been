@@ -2,8 +2,8 @@
 /*
  * 정확도 검증용 무작위 표본(기본 30곳)을 뽑아 검증 시트(HTML)와 표본 CSV를 만든다.
  *
- * 사용법: node tools/make_validation.js app/easytrip.html [표본 수=30] [시드=20260930]
- *         node tools/make_validation.js app/easytrip.html --verdict=불가   (그 판정 전체를 전수 검증)
+ * 사용법: node tools/make_validation.js app [표본 수=30] [시드=20260930]
+ *         node tools/make_validation.js app --verdict=불가   (그 판정 전체를 전수 검증)
  * 결과:   validation/정확도검증_30곳.html  (브라우저로 열어 사람이 원문과 대조)
  *         validation/정확도검증_30곳_표본.csv
  *
@@ -12,19 +12,20 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { loadSpots } = require('./lib_spots');
+const { loadSpots, readApp } = require('./lib_spots');
 
 const argv = process.argv.slice(2);
 const only = (argv.find(a => a.startsWith('--verdict=')) || '').slice('--verdict='.length);
 const [htmlPath, nArg, seedArg] = argv.filter(a => !a.startsWith('--'));
-if (!htmlPath) { console.error('사용법: node tools/make_validation.js app/easytrip.html [표본 수] [시드]'); process.exit(1); }
+if (!htmlPath) { console.error('사용법: node tools/make_validation.js app [표본 수] [시드]'); process.exit(1); }
 let N = parseInt(nArg || '30', 10);
 const SEED = parseInt(seedArg || '20260930', 10);
 
 /* 시드 고정 난수 (mulberry32) */
 function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
-const all = loadSpots(fs.readFileSync(htmlPath, 'utf8')).filter(s => s.evi && s.evi.u && /^https?:/.test(s.evi.u) && (!only || s.v === only));
+const app = readApp(htmlPath);
+const all = loadSpots(app.src).filter(s => s.evi && s.evi.u && /^https?:/.test(s.evi.u) && (!only || s.v === only));
 if (only) N = all.length;
 const r = rng(SEED);
 const idx = all.map((_, i) => i);
@@ -35,7 +36,7 @@ const sample = idx.slice(0, N).map((i, k) => {
 });
 
 const tag = only ? `${only}_전수${N}곳` : `${N}곳`;
-const outDir = path.join(path.dirname(htmlPath), '..', 'validation');
+const outDir = path.join(app.root, 'validation');
 fs.mkdirSync(outDir, { recursive: true });
 const q = x => '"' + String(x).replace(/"/g, '""') + '"';
 fs.writeFileSync(path.join(outDir, `정확도검증_${tag}_표본.csv`),

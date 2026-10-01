@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /*
- * 노약자·시각장애 판정 CSV를 앱(app/easytrip.html)의 TYPE_JUDG 에 병합한다.
+ * 노약자·시각장애 판정 CSV를 앱(app/js/35_type_judg.js)의 TYPE_JUDG 에 병합한다.
  *
  * 사용법:
- *   node tools/merge_types.js app/easytrip.html 노약자판정.csv [시각판정.csv ...] [--dry]
+ *   node tools/merge_types.js app 노약자판정.csv [시각판정.csv ...] [--dry]
  *
  * CSV 열(헤더 이름은 아래 별칭 중 아무거나):
  *   id        장소 id (gyeongju_1, y3 …)                  — 없으면 name(+region)으로 찾음
@@ -29,7 +29,7 @@ const args = process.argv.slice(2);
 const dry = args.includes('--dry');
 const files = args.filter(a => a !== '--dry');
 if (files.length < 2) {
-  console.error('사용법: node tools/merge_types.js app/easytrip.html 판정.csv [판정2.csv ...] [--dry]');
+  console.error('사용법: node tools/merge_types.js app 판정.csv [판정2.csv ...] [--dry]');
   process.exit(1);
 }
 const htmlPath = files[0];
@@ -101,8 +101,10 @@ function normSource(s) {
 const squash = s => String(s).replace(/\s+/g, '').toLowerCase();
 
 /* ---------- 앱에서 장소 목록 읽기 ---------- */
-const html = fs.readFileSync(htmlPath, 'utf8');
-const spots = require('./lib_spots').loadSpots(html);
+const { loadSpots, readApp } = require('./lib_spots');
+const app = readApp(htmlPath);
+const spots = loadSpots(app.src);
+const html = fs.readFileSync(app.judgPath, 'utf8');
 const byId = new Map(spots.map(s => [s.id, s]));
 
 function findSpot(row) {
@@ -165,5 +167,5 @@ if (report.unmatched.length) {
 }
 if (dry) { console.log('--dry: 파일은 바꾸지 않았어'); process.exit(0); }
 const out = html.replace(block[0], `/*TYPE_JUDG_START*/var TYPE_JUDG=${JSON.stringify(J)};var TYPE_META=${JSON.stringify(META)};/*TYPE_JUDG_END*/`);
-fs.writeFileSync(htmlPath, out);
-console.log('병합 완료 →', htmlPath);
+fs.writeFileSync(app.judgPath, out);
+console.log('병합 완료 →', app.judgPath, '(반영하려면 python3 app/build.py)');
