@@ -449,3 +449,6 @@ body.big .et .lmap{zoom:calc(1/1.15)}
 .p2 .onb-dots{padding-bottom:72px}
 .onb-dots i{width:9px;height:9px;border-radius:50%;background:#C9D3DD}
 .onb-dots i.on{background:#1B6FEA}
+
+/* 빠른 버튼(근처 화장실·할인 정보·동행자): 3D 이미지 아이콘은 더 크게 */
+.qbtn .qi:has(.mobimg){width:60px;height:60px;border-radius:16px}

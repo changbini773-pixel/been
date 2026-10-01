@@ -13,6 +13,8 @@ var MOBS=[
   cond:[["장애인 화장실",0],["엘리베이터",0],["전용 주차구역",0]],c:"#5E7C8E",bg:"#EDF2F6",tc:"#37576B"}
 ];
 var M=n=>MOBS.find(m=>m.n===n)||MOBS[0];
+/* 빠른 버튼 아이콘: QA_IMG(data/qa_icons.js)가 있으면 3D 이미지, 없으면 기존 선 아이콘 */
+function qaIc(k,svg){return (typeof QA_IMG!=='undefined'&&QA_IMG[k])?'<img class="mobimg" src="'+QA_IMG[k]+'" alt="">':svg}
 function mobIc(m,sz,sw){return MOB_IMG[m.n]?'<img class="mobimg" src="'+MOB_IMG[m.n]+'" alt="" width="'+sz+'" height="'+sz+'">':ic(m.ic.slice(3),sz,sw)}
 
 var S={mob:"휠체어",region:"gyeongsan",

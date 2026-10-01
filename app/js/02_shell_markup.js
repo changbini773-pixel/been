@@ -51,9 +51,9 @@ function etShell(){return `
    </div>
    <button class="btn dark" style="margin-top:14px" onclick="taxiSheet()">${ic('taxi',21,1.8)}부르미 호출</button>
    <div class="qa">
-    <button class="qbtn" onclick="toiletSheet()"><span class="qi">${ic('wc',22,1.7)}</span>근처 화장실</button>
-    <button class="qbtn" onclick="discountSheet()"><span class="qi">${ic('tag',21,1.8)}</span>할인 정보</button>
-    <button class="qbtn" onclick="companionSheet()"><span class="qi">${ic('users',21,1.8)}</span>동행자</button>
+    <button class="qbtn" onclick="toiletSheet()"><span class="qi">${qaIc('wc',ic('wc',22,1.7))}</span>근처 화장실</button>
+    <button class="qbtn" onclick="discountSheet()"><span class="qi">${qaIc('tag',ic('tag',21,1.8))}</span>할인 정보</button>
+    <button class="qbtn" onclick="companionSheet()"><span class="qi">${qaIc('users',ic('users',21,1.8))}</span>동행자</button>
    </div>
    <div id="routeArea"></div>
   </section>
